@@ -42,6 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     gocd_agent.vm.provision "shell", inline: "wget -P /tmp https://download.go.cd/gocd-deb/go-agent-15.2.0-2248.deb"
     gocd_agent.vm.provision "shell", inline: "sudo dpkg -i /tmp/go-agent-15.2.0-2248.deb"
+    gocd_agent.vm.provision "shell", inline: "sudo sed -i 's/127.0.0.1/192.168.33.40/' /etc/default/go-agent && sudo service go-agent restart"
 
     gocd_agent.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "1024"]
