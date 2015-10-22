@@ -4,12 +4,8 @@
 $script = <<SCRIPT
 
 sudo apt-get update
+sudo apt-get install curl software-properties-common vim unzip wget git openjdk-7-jre -y
 
-sudo apt-get install curl software-properties-common vim unzip wget git -y
-
-echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | \
-sudo debconf-set-selections && sudo add-apt-repository -y ppa:webupd8team/java && \ 
-sudo apt-get update && sudo apt-get install -y oracle-java7-installer
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
